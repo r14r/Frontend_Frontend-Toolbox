@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]>
+<html class="ie" lang="en">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scroll Drawing</title>
+    <link rel="stylesheet" media="all" href="default.css" />
+</head>
+
+<body>
+    <div class="clock">
+
+        <span class="cog hours tens" data-splitting>0123456789</span>
+        <span class="cog hours" data-splitting>0123456789</span>
+        <span class="colon">:</span>
+        <span class="cog minutes tens" data-splitting>0123456789</span>
+        <span class="cog minutes" data-splitting>0123456789</span>
+        <span class="colon">:</span>
+        <span class="cog seconds tens" data-splitting>0123456789</span>
+        <span class="cog seconds" data-splitting>0123456789</span>
+
+    </div>
+
+    <script src="/lib/vendor/jquery/3.5.1/jquery.js"></script>
+    <script src="/lib/vendor/splitting/1.0.5/splitting.min.js"></script>
+    <script src="default.js"></script>
+</body>
