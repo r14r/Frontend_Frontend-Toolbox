@@ -1,6 +1,6 @@
 .wrapper {
     min-height: 100vh;
-    font-family: "Roboto Slab", serif;
+    font-family: 'Roboto Slab', serif;
     font-weight: 300;
     color: #fff;
     position: relative;
@@ -10,121 +10,149 @@ section {
     height: 100vh;
     font-size: 40px;
     font-weight: 100;
-    background-color: #22a7f0;
-
+    background-color: #22A7F0;
+    display: -webkit-box;
     display: flex;
+    -webkit-box-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
     align-items: center;
+}
 
-    $colors: white, #f64747, #22a7f0, #f9690e, #9b59b6, #03c9a9, #ffcc00;
+section:nth-child(1) {
+    background: white;
+}
 
-    @for $i from 1 through length($colors) {
-        &:nth-child(#{$i}) {
-            background: nth($colors, $i);
-        }
-    }
+section:nth-child(2) {
+    background: #F64747;
+}
+
+section:nth-child(3) {
+    background: #22A7F0;
+}
+
+section:nth-child(4) {
+    background: #F9690E;
+}
+
+section:nth-child(5) {
+    background: #9B59B6;
+}
+
+section:nth-child(6) {
+    background: #03C9A9;
+}
+
+section:nth-child(7) {
+    background: #ffcc00;
+}
+
+.nav__wrapper {
+    position: fixed;
+    height: 100%;
+    padding: 30px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-flow: column nowrap;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
 }
 
 .nav {
-    &__wrapper {
-        position: fixed;
-        height: 100%;
-        padding: 30px;
+    margin: 0 0 100px 30px;
+}
 
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-end;
-    }
+.nav__counter {
+    font-size: 24px;
+    -webkit-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
 
-    & {
-        margin: 0 0 100px 30px;
-    }
+.nav__title {
+    font-size: 32px;
+    font-weight: 300;
+    margin: 0 0 0.25em;
+    width: 300px;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: height 0.3s ease-out, opacity 0.2s ease-out;
+    transition: height 0.3s ease-out, opacity 0.2s ease-out;
+}
 
-    &__counter {
-        font-size: 24px;
-        transition: all 0.15s ease-out;
-    }
+.nav__body {
+    font-weight: 100;
+    font-size: 18px;
+    font-size: 18px;
+    width: 300px;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: height 0.3s ease-out, opacity 0.2s ease-out;
+    transition: height 0.3s ease-out, opacity 0.2s ease-out;
+}
 
-    &__title {
-        font-size: 32px;
-        font-weight: 300;
-        margin: 0 0 0.25em;
-        width: 300px;
-        height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: height 0.3s ease-out, opacity 0.2s ease-out;
-    }
+.nav li {
+    position: relative;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    margin-bottom: 1em;
+}
 
-    &__body {
-        font-weight: 100;
-        font-size: 18px;
-        font-size: 18px;
-        width: 300px;
-        height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: height 0.3s ease-out, opacity 0.2s ease-out;
-    }
+.nav li:after {
+    content: '';
+    display: block;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    height: 250px;
+    width: 20px;
+    position: absolute;
+    left: -30px;
+    top: 15px;
+}
 
-    li {
-        position: relative;
-        transition: all 0.3s ease-out;
-        margin-bottom: 1em;
+.nav li a {
+    display: block;
+    padding: 0;
+    color: #fff;
+    -webkit-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
 
-        &:after {
-            content: "";
-            display: block;
-            border-left: 2px solid white;
-            border-top: 2px solid white;
-            height: 250px;
-            width: 20px;
-            position: absolute;
-            left: -30px;
-            top: 15px;
-        }
+.nav li a:hover {
+    background-color: transparent;
+    padding-left: 1em;
+}
 
-        a {
-            display: block;
-            padding: 0;
-            color: #fff;
-            transition: all 0.15s ease-out;
+.nav li a:focus {
+    background-color: transparent;
+}
 
-            &:hover {
-                background-color: transparent;
-                padding-left: 1em;
-            }
+.nav li.active {
+    pointer-events: none;
+    padding-left: 1em;
+}
 
-            &:focus {
-                background-color: transparent;
-            }
-        }
+.nav li.active:after {
+    width: 35px;
+    height: 400px;
+    top: 35px;
+}
 
-        &.active {
-            pointer-events: none;
-            padding-left: 1em;
+.nav li.active .nav__counter {
+    font-size: 48px;
+}
 
-            &:after {
-                width: 35px;
-                height: 400px;
-                top: 35px;
-            }
+.nav li.active .nav__title {
+    height: 40px;
+    opacity: 1;
+    overflow: visible;
+}
 
-            .nav__counter {
-                font-size: 48px;
-            }
-
-            .nav__title {
-                height: 40px;
-                opacity: 1;
-                overflow: visible;
-            }
-
-            .nav__body {
-                height: 100px;
-                opacity: 1;
-                overflow: visible;
-            }
-        }
-    }
+.nav li.active .nav__body {
+    height: 100px;
+    opacity: 1;
+    overflow: visible;
 }
